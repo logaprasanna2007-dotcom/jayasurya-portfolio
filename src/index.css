@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-primary: #0f172a;
+  --color-secondary: #475569;
+  --color-accent: #3b82f6;
+  --color-bg-dark: #ffffff;
+  --color-bg-card: #f8fafc;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900;
+    cursor: default;
+    background-image: 
+      radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(15, 23, 42, 0.02) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-slate-200 shadow-sm;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 font-extrabold;
+  }
+
+  .pill {
+    @apply bg-slate-100 border border-slate-200 px-3 py-1 rounded-full text-[10px] w-fit mb-2 uppercase tracking-wider text-slate-600 font-bold;
+  }
+
+  .stat-box {
+    @apply bg-white border border-slate-100 rounded-xl flex flex-col items-center justify-center p-4 transition-all hover:border-slate-200 hover:shadow-md;
+  }
+
+  .badge-label {
+    @apply text-[10px] uppercase tracking-[0.1em] text-slate-400 mb-1 font-semibold;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
